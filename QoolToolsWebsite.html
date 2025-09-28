@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Image Tiles — Simple Gallery</title>
+  <meta name="description" content="A simple responsive tiled image gallery where each tile links to a URL." />
+  <style>
+    :root{
+      --bg: #f6f7fb;
+      --card: #fff;
+      --accent: #0b74de;
+      --muted: #56657a;
+      --radius: 12px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:#1b2430;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:32px;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    header{
+      margin-bottom:18px;
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(20px, 3vw, 28px);
+      letter-spacing:-0.02em;
+    }
+
+    p.lead{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* grid for the tiles */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+      gap:14px;
+      align-items:start;
+    }
+
+    a.tile{
+      display:flex;
+	  flex-direction:column;
+      background:var(--card);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:0 6px 18px rgba(17,24,39,0.06);
+      text-decoration:none;
+      color:inherit;
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+
+    a.tile:focus{
+      outline:3px solid color-mix(in srgb, var(--accent) 20%, transparent);
+      outline-offset:3px;
+    }
+
+    a.tile:hover{transform:translateY(-6px); box-shadow:0 18px 36px rgba(11,116,222,0.12)}
+
+    a.tile img{
+	  width:100%;
+	  height:auto;
+	  object-fit:cover;
+	  display:block;
+	  vertical-align:middle;
+    }
+
+	.caption{
+	  padding:10px;
+	  font-size:14px;
+	  color:#1b2430;
+	  background:var(--card);
+	  text-align:center;
+	}
+
+    /* small helper for attribution/footnote */
+    footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width:420px){
+      body{padding:18px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Qool Tools</h1>
+        <!--<p class="lead">Click any tile to open its link. This grid is responsive and accessible.</p>-->
+      </div>
+      <div aria-hidden="true">🔗</div>
+    </header>
+
+    <!-- Grid of linked image tiles. Replace the image URLs and href values as needed. -->
+    <main>
+      <section class="grid" aria-label="Image links gallery">
+
+        <a class="tile" href="https://teleportpod.com/portal/772a82ef-67e7-456d-b653-6e855b17a8a3?item=638" target="_blank" rel="noopener noreferrer" aria-label="Open Page 1 - Mountain view">
+          <img src="WallabyBasic.jpg" alt="Mountain with lake and pine trees" loading="lazy" />
+          <div class="caption">Victorinox Wallaby Scale</div>
+        </a>
+
+        <a class="tile" href="https://teleportpod.com/portal/5e96b5ba-6cfb-41a1-9356-92b26baa60d8?item=637" target="_blank" rel="noopener noreferrer" aria-label="Open Page 2 - City skyline at dusk">
+          <img src="WallabyScaleBitdriverZoom.jpg" alt="City skyline during sunset" loading="lazy" />
+          <div class="caption">Victorinox Wallaby Scale (+Bitdrivers)</div>
+        </a>
+
+        <a class="tile" href="https://teleportpod.com/portal/493b803e-1228-462b-b0ee-45686a271539?item=1206" target="_blank" rel="noopener noreferrer" aria-label="Open Page 3 - Forest path">
+          <img src="91mmAssemblyJig.jpg" alt="Forest path between trees" loading="lazy" />
+          <div class="caption">Victorinox 91mm Assembly Jig</div>
+        </a>
+
+        <a class="tile" href="https://teleportpod.com/portal/d85c7d10-b76f-4afb-abeb-0c9c0f027027?item=858" target="_blank" rel="noopener noreferrer" aria-label="Open Page 4 - Desert dunes">
+          <img src="93mmAssemblyJig.jpg" alt="Rolling desert dunes" loading="lazy" />
+          <div class="caption">Victorinox 93mm Assembly Jig</div>
+        </a>
+
+        <a class="tile" href="https://teleportpod.com/portal/67ec554d-89a4-4d91-8804-8e960215c52d?item=986" target="_blank" rel="noopener noreferrer" aria-label="Open Page 5 - Snowy peaks">
+          <img src="TweezerToothpickKeychain2.jpg" alt="Snowy mountain peaks" loading="lazy" />
+          <div class="caption">Victorinox Tweezer/Toothpick Keychain Holder</div>
+        </a>
+
+        <a class="tile" href="https://teleportpod.com/portal/e6234850-622a-4f13-abe0-1728f25ea321?item=1150" target="_blank" rel="noopener noreferrer" aria-label="Open Page 6 - Calm ocean">
+          <img src="58mmBitdriverAdapter.jpg" alt="Calm ocean and horizon" loading="lazy" />
+          <div class="caption">Mini Combo Tool (58mm) Bitdriver Adapter (4mm)</div>
+        </a>
+		
+		<a class="tile" href="https://teleportpod.com/portal/7795f8b8-8d43-4979-b273-86021ba23168?item=1171" target="_blank" rel="noopener noreferrer" aria-label="Open Page 6 - Calm ocean">
+          <img src="91mmBitdriverAdapter.jpg" alt="Calm ocean and horizon" loading="lazy" />
+          <div class="caption">Cap Lifter (91mm) Bitdriver Adapter (1/4in)</div>
+        </a>
+		
+		<a class="tile" href="https://teleportpod.com/portal/7e989680-e0e4-4739-b2ef-bada609ce81a?item=1205" target="_blank" rel="noopener noreferrer" aria-label="Open Page 6 - Calm ocean">
+          <img src="91mmBitdriverAdapter.jpg" alt="Calm ocean and horizon" loading="lazy" />
+          <div class="caption">Combo Tool (91mm) Bitdriver Adapter (1/4in)</div>
+        </a>
+		
+		<a class="tile" href="https://teleportpod.com/portal/0d80515a-d4ab-435a-bbbd-60a2d7804eab?item=985" target="_blank" rel="noopener noreferrer" aria-label="Open Page 6 - Calm ocean">
+          <img src="93mmBitdriverAdapter.jpg" alt="Calm ocean and horizon" loading="lazy" />
+          <div class="caption">Cap Lifter (93mm) Bitdriver Adapter (1/4in)</div>
+        </a>
+		
+		<a class="tile" href="https://www.ebay.de/itm/317231306251" target="_blank" rel="noopener noreferrer" aria-label="Open Page 6 - Calm ocean">
+          <img src="DragonScale.jpg" alt="Calm ocean and horizon" loading="lazy" />
+          <div class="caption">Dragon Scale (4mm bitdriver, metal 3D printed, 91mm model)</div>
+        </a>
+
+		<!--<a class="tile" href="https://www.ebay.de/itm/317231306251" target="_blank" rel="noopener noreferrer" aria-label="Open Page 6 - Calm ocean">
+          <img src="QuattroHex.jpg" alt="Calm ocean and horizon" loading="lazy" />
+          <div class="caption">Quattro Hex (2, 2.5, 3, 4mm Lanyard Bitdriver)</div>
+        </a>-->
+		
+      </section>
+    </main>
+
+    <footer>
+      <!--Tip: replace the <code>href</code> values with your destinations and the <code>src</code> values with your images.-->
+    </footer>
+  </div>
+</body>
+</html>
